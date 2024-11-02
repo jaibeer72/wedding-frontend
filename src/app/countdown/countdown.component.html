@@ -1,0 +1,9 @@
+<div class="wedding-countdown">
+  <h2 class="title">Countdown to the Big Day!</h2>
+  <div class="countdown-grid">
+    <div *ngFor="let unit of timeLeft | keyvalue" class="time-unit">
+      <div class="value">{{ unit.value.toString().padStart(2, '0') }}</div>
+      <div class="label">{{ unit.key }}</div>
+    </div>
+  </div>
+</div>
