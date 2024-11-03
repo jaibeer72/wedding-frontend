@@ -27,7 +27,7 @@ jobs:
       - name: Zip the build output
         run: |
           cd dist/wedding-frontend/browser  # Change this to your build output directory
-          zip -r ../../build.zip .       # Zips the contents of the build directory
+          zip -r ./build.zip .       # Zips the contents of the build directory
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -38,6 +38,7 @@ jobs:
 
       - name: Upload to S3
         run: |
+          cd dist/wedding-frontend/browser
           ls
           aws s3 cp ./build.zip s3://your-amplify-bucket-name/build.zip # Change to your S3 bucket name
 
