@@ -29,13 +29,16 @@ jobs:
           cd dist/wedding-frontend/browser  # Change this to your build output directory
           zip -r ../build.zip .       # Zips the contents of the build directory
 
-      - name: Upload to AWS Amplify
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-          command: aws s3 sync ../build.zip s3://movie-browser-bucket/releases/build.zip --delete
+
+      - name: Upload to S3
+        run: |
+          aws s3 cp ../build.zip s3://your-amplify-bucket-name/build.zip # Change to your S3 bucket name
 
       - name: Deploy to AWS Amplify
         run: |
