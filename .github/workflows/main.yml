@@ -35,7 +35,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
-          command: s3 cp ../build.zip s3://movie-browser-bucket/releases/build.zip # Change to your S3 bucket name
+          command: aws s3 sync ../build.zip s3://movie-browser-bucket/releases/build.zip --delete
 
       - name: Deploy to AWS Amplify
         run: |
