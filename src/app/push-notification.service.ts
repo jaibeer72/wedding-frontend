@@ -9,7 +9,7 @@ export class PushNotificationService {
 
     constructor() {
         this.hubConnection = new signalR.HubConnectionBuilder()
-            .withUrl('http://localhost:5034/notificationHub') // Update with your backend URL
+            .withUrl('https://wedding-backend-551605752736.us-central1.run.app/notificationHub') // Update with your backend URL
             .build();
     }
 
