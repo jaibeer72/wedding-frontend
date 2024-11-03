@@ -26,7 +26,7 @@ jobs:
 
       - name: Zip the build output
         run: |
-          cd dist/your-project-name  # Change this to your build output directory
+          cd dist/wedding-frontend/browser  # Change this to your build output directory
           zip -r ../build.zip .       # Zips the contents of the build directory
 
       - name: Upload to AWS Amplify
