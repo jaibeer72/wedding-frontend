@@ -40,8 +40,8 @@ jobs:
         run: |
           cd dist/wedding-frontend/browser
           ls
-          aws s3 cp ./build.zip s3://your-amplify-bucket-name/build.zip # Change to your S3 bucket name
+          aws s3 cp ./build.zip s3://movie-browser-bucket/releases/build.zip --delete # Change to your S3 bucket name
 
       - name: Deploy to AWS Amplify
         run: |
-          aws amplify start-deployment --app-id your-amplify-app-id --branch-name main --file-path build.zip
+          aws amplify start-deployment --app-id d2srsxq09d74l7 --branch-name staging --file-path build.zip
