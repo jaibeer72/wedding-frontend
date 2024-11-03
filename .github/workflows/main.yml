@@ -38,6 +38,7 @@ jobs:
 
       - name: Upload to S3
         run: |
+          ls
           aws s3 cp ./build.zip s3://your-amplify-bucket-name/build.zip # Change to your S3 bucket name
 
       - name: Deploy to AWS Amplify
