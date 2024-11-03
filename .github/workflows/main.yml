@@ -27,7 +27,7 @@ jobs:
       - name: Zip the build output
         run: |
           cd dist/wedding-frontend/browser  # Change this to your build output directory
-          zip -r ../build.zip .       # Zips the contents of the build directory
+          zip -r ../../build.zip .       # Zips the contents of the build directory
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
